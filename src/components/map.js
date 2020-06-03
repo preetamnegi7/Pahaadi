@@ -17,6 +17,7 @@ export default function Map() {
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       >
         <h2>Welcome to uttarakhand</h2>
+        <h2>देवभूमि उत्तराखंड मा आपक स्वागत च</h2>
       </ReactMapGL>
     </div>
   );
