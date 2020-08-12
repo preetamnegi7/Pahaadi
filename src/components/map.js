@@ -1,24 +1,26 @@
-import React, { useState } from "react";
-import ReactMapGL from "react-map-gl";
+import * as React from "react";
+import { Component } from "react";
+import ReactMapGL, { GeolocateControl } from "react-map-gl";
 
-export default function Map() {
-  const [viewport, setViewport] = useState({
-    latitude: 30.0668,
-    longitude: 79.0193,
-    width: "100vw",
-    height: "100vh",
-    zoom: 8,
-  });
+export default class Map extends Component {
+  state = {
+    viewport: { longitude: -122.45, latitude: 37.78, zoom: 14 },
+  };
 
-  return (
-    <div>
+  render() {
+    const { viewport } = this.state;
+    return (
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        width="100vw"
+        height="100vh"
+        onViewportChange={(viewport) => this.setState({ viewport })}
       >
-        <h2>Welcome to uttarakhand</h2>
-        <h2>देवभूमि उत्तराखंड मा आपक स्वागत च</h2>
+        <GeolocateControl
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+        />
       </ReactMapGL>
-    </div>
-  );
+    );
+  }
 }
