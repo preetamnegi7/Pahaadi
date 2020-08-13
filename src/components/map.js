@@ -4,7 +4,7 @@ import ReactMapGL, { GeolocateControl } from "react-map-gl";
 
 export default class Map extends Component {
   state = {
-    viewport: { longitude: -122.45, latitude: 37.78, zoom: 14 },
+    viewport: { longitude: 21.0122, latitude: 52.2297, zoom: 14 },
   };
 
   render() {
@@ -13,6 +13,7 @@ export default class Map extends Component {
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        mapStyle="mapbox://styles/preetamnegi7/ckcpzafdy0y5g1il910ddvc5w"
         width="100vw"
         height="100vh"
         onViewportChange={(viewport) => this.setState({ viewport })}

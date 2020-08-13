@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import ReactMapGL, { Marker, Popup, GeolocateControl } from "react-map-gl";
 import * as gymData from "./Data/data.json";
 import "./App.css";
 
@@ -66,6 +66,11 @@ export default function App() {
             </div>
           </Popup>
         ) : null}
+
+        <GeolocateControl
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+        />
       </ReactMapGL>
     </div>
   );
