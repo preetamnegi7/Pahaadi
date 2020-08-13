@@ -12,6 +12,7 @@ export default class Map extends Component {
     return (
       <ReactMapGL
         {...viewport}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         width="100vw"
         height="100vh"
         onViewportChange={(viewport) => this.setState({ viewport })}
